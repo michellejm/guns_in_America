@@ -1,0 +1,33 @@
+Bureau of Justice Statistics,,,
+filename:  bcft10stt07.csv,,,
+"Table 7. Reported arrests of persons denied a firearm permit or purchase, 2000–2010",,,
+"title: Background Checks for Firearm Transfers, 2010 - Statistical Tables NCJ 238226",,,
+data source:  Firearm Inquiry Statistics Program,,,
+"authors: Ronald J. Frandsen (REJIS), Dave Naglich (REJIS), Gene A. Lauver (REJIS), and Allina D. Lee (BJS)",,,
+refer questions to: askbjs@usdoj.gov (202)307-0765,,,
+"date of version:  February 12, 2013",,,
+,,,
+"Table 7. Reported arrests of persons denied a firearm permit or purchase, 2000–2010",,,
+,,,
+,,Number of arrests,
+Type of checking agency,,2010,2000–2010/a
+,Total,"1,520","16,441"
+States,,"1,424","15,972"
+,Colorado/b,169,"2,110"
+,Connecticut/c,/,65
+,Delaware/b,/,24
+,Georgia/d,~,349
+,Maryland/c,/,559
+,New Jersey/b,/,36
+,Oregon/b,90,"1,220"
+,Pennsylvania/b,319,"3,172"
+,Virginia/b,846,"8,437"
+Local agencies,,96,469
+"Note: Counts are from agencies that provided data. For more information on reporting agencies and sample design, see Methodology.",,,
+/Not reported.,,,
+~Not applicable.,,,
+a/Arrest data have been collected since 2000. Some states did not report arrests for all years.,,,
+b/Arrests were made by state police units or local agencies and may not always be reported to the state.,,,
+c/A statewide unit responded to all falsified applications and illegal attempts to buy firearms.,,,
+d/No longer operated as a point of contact state after 2004.,,,
+"Source: Bureau of Justice Statistics, Firearm Inquiry Statistics (FIST) program, 2010.",,,

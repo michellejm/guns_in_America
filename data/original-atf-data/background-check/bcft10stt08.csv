@@ -1,0 +1,37 @@
+Bureau of Justice Statistics,,,,,
+filename:  bcft10stt08.csv,,,,,
+"Table 8. Bureau of Alcohol, Tobacco, Firearms and Explosives (ATF) investigation of National Instant Criminal Background Check System (NICS) denials by the FBI, 2010",,,,,
+"title: Background Checks for Firearm Transfers, 2010 - Statistical Tables NCJ 238226",,,,,
+data source:  Firearm Inquiry Statistics Program,,,,,
+"authors: Ronald J. Frandsen (REJIS), Dave Naglich (REJIS), Gene A. Lauver (REJIS), and Allina D. Lee (BJS)",,,,,
+refer questions to: askbjs@usdoj.gov (202)307-0765,,,,,
+"date of version:  February 12, 2013",,,,,
+,,,,,
+"Table 8. Bureau of Alcohol, Tobacco, Firearms and Explosives (ATF) investigation of National Instant Criminal Background Check System (NICS) denials by the FBI, 2010",,,,,
+,,,Total,Percent,
+,FBI denials referred to ATF Denial Enforcement and NICS Intelligence (DENI) Branch ,,"76,142",100,%
+DENI Branch referrals to ATF field divisions/a,,,,,
+,Total referred to field,,"4,732",6.2,%
+,,Delayed denials/b,"2,265",3,
+,,Standard referrals/c,"2,467",3.2,
+,Not referred to field,,"68,209",89.6,%
+,Not referred and overturne/d,,"3,163",4.2,%
+,Canceled/d,,38,0,%
+,Reasons for referrals to ATF field divisions,,,,
+,,Subject to protective order,"1,395",29.5,%
+,,Convicted felon,"1,144",24.2,
+,,Domestic violence misdemeanor,"1,049",22.2,
+,,Unlawful user of controlled substance,411,8.7,
+,,Under indictment or information/e,344,7.3,
+,,Fugitive from justice,286,6,
+,,Adjudicated mentally defective,46,1,
+,,Illegal or unlawful alien,36,0.8,
+,,Other reasons/f,21,0.4,
+Note: Detail may not sum to total due to rounding.  ,,,,,
+a/A denial is referred if it is likely to merit prosecution under ATF and U.S. Attorney criteria.,,,,,
+"b/A firearm may be obtained during an open transaction where the FBI has not completed a check in three business days and the dealer is allowed to transfer the firearm. If the FBI completes the check and finds that the buyer is prohibited, a delayed denial referral is made to ATF.",,,,,
+c/Involves a person who is not allowed to receive a firearm because the FBI found a prohibitory record within three business days.,,,,,
+d/Represents NICS checks that should not have been conducted and were canceled by the FBI. ,,,,,
+"e/An information is a formal accusation of a crime, which differs from an indictment because it is made by a prosecuting attorney rather than a grand jury.",,,,,
+f/Compiled from four other prohibiting categories used by the DENI Branch to refer denials for field investigation.,,,,,
+"Source: Bureau of Alcohol, Tobacco, Firearms and Explosives (ATF), Denial Enforcement and NICS Intelligence (DENI) Branch, Firearm Denial Statistics, 2010.",,,,,

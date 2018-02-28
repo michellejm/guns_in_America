@@ -1,0 +1,56 @@
+Bureau of Justice Statistics,,,,
+filename:  bcft10at05.csv,,,,
+"Appendix table 5. Forums for appeals of denials, 2010",,,,
+"title: Background Checks for Firearm Transfers, 2010 - Statistical Tables NCJ 238226",,,,
+data source:  Firearm Inquiry Statistics Program,,,,
+"authors: Ronald J. Frandsen (REJIS), Dave Naglich (REJIS), Gene A. Lauver (REJIS), and Allina D. Lee (BJS)",,,,
+refer questions to: askbjs@usdoj.gov (202)307-0765,,,,
+"date of version:  February 12, 2013",,,,
+  ,,,,
+"Appendix table 5. Forums for appeals of denials, 2010",,,,
+State,Type of check,Denying agency,Other agency,Court system
+Arizona,Exempt carry,X,~,X
+California,Other approval,X,~,~
+Colorado,Instant check,X,~,~
+Connecticut,Instant check,X,~,~
+,Purchase permit,~,X,~
+Delaware,Instant check,X,~,X
+,Exempt carry,~,~,X
+Florida,Instant check,X,~,~
+Georgia,Exempt carry,~,~,X
+Illinois,Instant check,X,~,X
+,Purchase permit,X,~,X
+Iowa,Purchase permit,~,~,X
+,Exempt carry,~,~,X
+Kansas,Exempt carry,~,~,X
+Maryland,Other approval,X,~,X
+Massachusetts,Purchase permit,~,~,X
+Michigan,Purchase permit,~,~,X
+,Exempt carry,~,~,X
+Minnesota,Purchase permit,~,~,X
+,Exempt carry,~,~,X
+Mississippi,Exempt carry,X,~,X
+Montana,Exempt carry,~,~,X
+Nebraska,Purchase permit,~,~,X
+,Exempt carry,X,~,X
+Nevada,Instant check,X,~,~
+New Hampshire,Instant check,X,~,X
+New Jersey,Instant check,X,~,~
+,Purchase permit,~,~,X
+North Carolina,Purchase permit,~,~,X
+,Exempt carry,~,~,X
+North Dakota,Exempt carry,~,~,X
+Oregon,Instant check,X,~,~
+Pennsylvania,Instant check,X,X,X
+South Carolina,Exempt carry,X,~,~
+Tennessee,Instant check,X,~,~
+Texas,Exempt carry,~,~,X
+Utah,Instant check,X,~,~
+,Exempt carry,~,X,~
+Virginia,Instant check,X,~,X
+Washington,Other approval,~,~,X
+Wisconsin,Instant check,X,~,X
+Wyoming,Exempt carry,X,~,~
+"Note: Statute or regulation provides a specific procedure to appeal a denial of a firearm transfer or permit. In addition, some denying agencies may reconsider a decision even if not required to do so by law.",,,,
+~Not applicable.,,,,
+"Source: Bureau of Justice Statistics, Firearm Inquiry Statistics (FIST) program, 2010.",,,,

@@ -1,0 +1,32 @@
+Available Data
+
+Crimes
+- locations of mass shootings
+- incident types by year/state
+
+Deaths
+- violent deaths by all categories of guns/state/year (CDC)
+- other deaths (CDC)
+
+
+Production
+- Federal firearm licensees (individuals & companies engaged in business pertaining to manufacture, import or sale of firearms - not owners, ownership data is dependent upon state regulations)
+- imports & exports by year
+
+Recover&Trace
+- calibers of the firearms recovered & traced by state/year
+- gun type recovered & traced by state/year
+- Result of background checks (no names, only tallies, ie., 'accept'/'reject', etc) 
+- time to crime by year/state with origin state
+
+Other
+- Gun Ownership as a Risk Factor for Homicide in the Home (NEJM article)
+- Injuries and deaths due to firearms in the home. (NCBI article)
+
+
+This data has been sifted through a lot. The big thing that has changed this time is the discourse. To this end, I will scrape the articles and comments from 
+
+- NYTimes (API)
+- Breitbart (articles are straightforward, comments a bit harder, but I found a tutorial)
+- Concealed carry
+- Giffords Law Center
