@@ -25,7 +25,7 @@ TO USE: Set newspapers and word list at the bottom.
 """
 def getService():
     service = build("customsearch", "v1",
-            developerKey="AIzaSyC3bsWJ5I1dcA5Dqj3bVTTWtZo96lYwxvw")
+            developerKey="MY_KEY")
     return service
 
 def pagesearch(engineid, wordlist, paper):
