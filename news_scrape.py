@@ -29,7 +29,7 @@ def getService():
     return service
 
 def pagesearch(engineid, wordlist, paper):
-    pageLimit = 1
+    pageLimit = 10
     service = getService()
     startIndex = 1
     response = []
@@ -104,13 +104,16 @@ Basics > Details > Search Engine ID
 """
 
 wordlist = ['gun', 'firearm', 'AR15', 'weapon', 'shot', 'rifle']
+
+#Breitbart
 paperbb = 'breitbart'
 custom_search_id_bb = '010452994600902477721:jnqwe5bzppe'
 
+#NYTimes (doesn't work)
 papernyt='nyt'
 custom_search_id_nyt = '010452994600902477721:_xacvksvdiy'
 
-
+#Wall Street Journal
 paperwsj='wsj'
 custom_search_id_wsj = '010452994600902477721:lg-xm4efonu'
 
