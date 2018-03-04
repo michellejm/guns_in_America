@@ -15,6 +15,7 @@ from googleapiclient.discovery import build
 
 import shelve
 import json
+import time
 
 
 """make a list of links for all the articles that have the keywords from a 
@@ -23,6 +24,54 @@ text from the article, returning it as a python db.
 
 TO USE: Set newspapers and word list at the bottom.
 """
+
+wordlist = ['gun', 'firearm', 'AR15', 'weapon', 'shot', 'rifle']
+
+"""Make a Google Custom Search for each newspaper. Find the CSE ID under 
+Basics > Details > Search Engine ID
+"""
+
+
+#"Conservative"
+#FoxNews
+#paper = 'fox'
+#custom_search_id = '010452994600902477721:lrogmxjaknk'
+
+##Wall Street Journal
+#paper = 'wsj'
+#custom_search_id = '010452994600902477721:lg-xm4efonu'
+
+##Breitbart
+#paper = 'breitbart'
+#custom_search_id = '010452994600902477721:jnqwe5bzppe'
+
+##InfoWars
+#paper='inforwars'
+#custom_search_id = '010452994600902477721:qxbs3slzoje'
+
+
+# "Liberal"
+#NYTimes (doesn't work)
+paper = 'nyt'
+custom_search_id = '010452994600902477721:_xacvksvdiy'
+
+##NPR
+#paper='npr'
+#custom_search_id = '010452994600902477721:wjpsk4ndijs'
+
+##HuffingtonPost
+#paper='huffpo'
+#custom_search_id = '010452994600902477721:e2pfkbhxyao'
+
+##The Atlantic
+#paper='atlantic'
+#custom_search_id = '010452994600902477721:teqeyj5cokk'
+
+##MSNBC
+#paper='msnbc'
+#custom_search_id = '010452994600902477721:qeubtpqw868'
+
+
 def getService():
     service = build("customsearch", "v1",
             developerKey="AIzaSyC3bsWJ5I1dcA5Dqj3bVTTWtZo96lYwxvw")
@@ -49,7 +98,7 @@ def pagesearch(engineid, wordlist, paper):
         json.dump(response, outfile)
 
     outfile.close()
-
+#
     data = json.load(open(paper+'data.json'))
     links=[]
     
@@ -64,6 +113,7 @@ def pagesearch(engineid, wordlist, paper):
             
     return links
 
+links = pagesearch(custom_search_id, wordlist, paper)
 
 class SavedArticles(AttrDisplay):
     def __init__(self, artid, author, date, link, text):
@@ -76,52 +126,38 @@ class SavedArticles(AttrDisplay):
         pass
     def keyWordCount(text):
         pass
-    
-    
+
+
 def paperdb(links, paper):
     #use the results of the json file and find only the links.
     db = shelve.open(paper+'db')
     
     #Use the newspaper module to parse the articles
     for url in links:
-        article = Article(url)
-        article.download()
-        article.parse()
-        
-        author = article.authors
-        text = article.text
-        date = article.publish_date
-        
-        artid = ('a'+ str(links.index(url)))
-        artid = SavedArticles(artid, author, date, url, text)
-        db[artid.artid] = artid
-        
+        try:
+            article = Article(url)
+            article.download()
+            article.parse()
+            
+            author = article.authors
+            text = article.text
+            date = article.publish_date
+            
+            artid = ('a'+ str(links.index(url)))
+            artid = SavedArticles(artid, author, date, url, text)
+            db[artid.artid] = artid
+        except:
+            pass
+            
     db.close()
 
-
-"""Make a Google Custom Search for each newspaper. Find the CSE ID under 
-Basics > Details > Search Engine ID
-"""
-
-wordlist = ['gun', 'firearm', 'AR15', 'weapon', 'shot', 'rifle']
-
-#Breitbart
-paperbb = 'breitbart'
-custom_search_id_bb = '010452994600902477721:jnqwe5bzppe'
-
-#NYTimes (doesn't work)
-papernyt='nyt'
-custom_search_id_nyt = '010452994600902477721:_xacvksvdiy'
-
-#Wall Street Journal
-paperwsj='wsj'
-custom_search_id_wsj = '010452994600902477721:lg-xm4efonu'
-
-links = pagesearch(custom_search_id_wsj, wordlist, papernyt)
-paperdb(links, paperwsj)
+links = pagesearch(custom_search_id, wordlist, paper)
+paperdb(links, paper)
 
 
-
+if __name__ =='__main__':
+    mydb = shelve.open(paper+'db')
+    print(len(mydb))
 
 
     
