@@ -1,0 +1,23 @@
+Project: Identify the major discourse themes in highly politicized arguments to identify which ideas are exclusively conservative, which are exclusively liberal, and which ideas are popular in both ideological poles. Starting with the current debate on gun control, this project seeks to understand how different parties are talking about gun control, where they differ, and where they overlap. 
+
+Goal: Come up with a list of news outlets (print, including news aggregators, and blog posts of TV or radio) that are trusted by readers with differing ideological perspectives. Where do people who identify as 'liberal' or 'conservative' turn for their news? What sources do these individuals trust? 
+
+
+
+Sources consulted to create list of news sites to focus on:
+
+In this mid-2017 Medium Post, Jeff Jarvis (CUNY J-school, 57m followers on Medium) mentions Fox as traditional, and Breitbart & InfoWars as up and coming sites. He offers the WSJ as a rational conservative option, but points out that they focus too much on business. NYTimes, MSNBC & The Atlantic are identified as liberal sources
+https://medium.com/@jeffjarvis/a-proposal-to-start-a-responsible-reliable-reasonable-conservative-news-organization-b0dfb60312c7
+
+In this 2014 Pew Study, they find that conservatives only trust Fox News, and liberals trust more sources - citing NYTimes, NPR, MSNBC
+http://www.journalism.org/2014/10/21/political-polarization-media-habits/
+
+
+
+
+
+
+
+Self-proclaimed 'conservative' sites with strong social media followings:
+
+The American Conservative (57k Facebook followers) http://www.theamericanconservative.com/
