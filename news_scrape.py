@@ -57,15 +57,15 @@ Basics > Details > Search Engine ID
 #paper='inforwars'
 #custom_search_id = '010452994600902477721:qxbs3slzoje'
 
-##American Conservative
-#paper = 'americanCon'
-#custom_search_id = '010452994600902477721:kqnmvpbnwxc'
+#American Conservative
+paper = 'americanCon'
+custom_search_id = '010452994600902477721:kqnmvpbnwxc'
 
 
 # "Liberal"
-#NYTimes
-paper = 'nyt'
-custom_search_id = '010452994600902477721:_xacvksvdiy'
+##NYTimes
+#paper = 'nyt'
+#custom_search_id = '010452994600902477721:_xacvksvdiy'
 
 ##NPR
 #paper='npr'
@@ -90,26 +90,26 @@ def getService():
     return service
 
 def pagesearch(engineid, wordlist, paper):
-#    pageLimit = 10
-#    service = getService()
-#    startIndex = 1
-#    response = []
-#
-#    for nPage in range(0, pageLimit):
-#        for word in wordlist:
-#            response.append(service.cse().list(
-#                q=word, #Search words
-#                cx=engineid,  #CSE Key
-#                #lr='lang_pt', #Search language
-#                start=startIndex
-#            ).execute())
-#    
-#            startIndex = response[nPage].get("queries").get("nextPage")[0].get("startIndex")
-#
-#    with open(paper+'data.json', 'w') as outfile:
-#        json.dump(response, outfile)
-#
-#    outfile.close()
+    pageLimit = 10
+    service = getService()
+    startIndex = 1
+    response = []
+
+    for nPage in range(0, pageLimit):
+        for word in wordlist:
+            response.append(service.cse().list(
+                q=word, #Search words
+                cx=engineid,  #CSE Key
+                #lr='lang_pt', #Search language
+                start=startIndex
+            ).execute())
+    
+            startIndex = response[nPage].get("queries").get("nextPage")[0].get("startIndex")
+
+    with open(paper+'data.json', 'w') as outfile:
+        json.dump(response, outfile)
+
+    outfile.close()
 #
     data = json.load(open(paper+'data.json'))
     links=[]
