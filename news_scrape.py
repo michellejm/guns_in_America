@@ -1,6 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+Created on Sun Mar  4 15:36:09 2018
+
+@author: mam
+"""
+
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
 Created on Fri Mar  2 09:34:47 2018
 
 @author: mam
@@ -49,9 +57,13 @@ Basics > Details > Search Engine ID
 #paper='inforwars'
 #custom_search_id = '010452994600902477721:qxbs3slzoje'
 
+##American Conservative
+#paper = 'americanCon'
+#custom_search_id = '010452994600902477721:kqnmvpbnwxc'
+
 
 # "Liberal"
-#NYTimes (doesn't work)
+#NYTimes
 paper = 'nyt'
 custom_search_id = '010452994600902477721:_xacvksvdiy'
 
@@ -74,30 +86,30 @@ custom_search_id = '010452994600902477721:_xacvksvdiy'
 
 def getService():
     service = build("customsearch", "v1",
-            developerKey="MY_KEY")
+            developerKey="AIzaSyC3bsWJ5I1dcA5Dqj3bVTTWtZo96lYwxvw")
     return service
 
 def pagesearch(engineid, wordlist, paper):
-    pageLimit = 10
-    service = getService()
-    startIndex = 1
-    response = []
-
-    for nPage in range(0, pageLimit):
-        for word in wordlist:
-            response.append(service.cse().list(
-                q=word, #Search words
-                cx=engineid,  #CSE Key
-                #lr='lang_pt', #Search language
-                start=startIndex
-            ).execute())
-    
-            startIndex = response[nPage].get("queries").get("nextPage")[0].get("startIndex")
-
-    with open(paper+'data.json', 'w') as outfile:
-        json.dump(response, outfile)
-
-    outfile.close()
+#    pageLimit = 10
+#    service = getService()
+#    startIndex = 1
+#    response = []
+#
+#    for nPage in range(0, pageLimit):
+#        for word in wordlist:
+#            response.append(service.cse().list(
+#                q=word, #Search words
+#                cx=engineid,  #CSE Key
+#                #lr='lang_pt', #Search language
+#                start=startIndex
+#            ).execute())
+#    
+#            startIndex = response[nPage].get("queries").get("nextPage")[0].get("startIndex")
+#
+#    with open(paper+'data.json', 'w') as outfile:
+#        json.dump(response, outfile)
+#
+#    outfile.close()
 #
     data = json.load(open(paper+'data.json'))
     links=[]

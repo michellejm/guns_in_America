@@ -8,6 +8,8 @@ Created on Sun Mar  4 08:44:30 2018
 
 import shelve
 
-db = shelve.open('wsjdb')
+db = shelve.open('newsDatabases/wsjdb')
 
-print(len(db))
+mykeys = list(db.keys())
+for key in mykeys[:5]:
+    print(db[key])
