@@ -23,7 +23,8 @@ from googleapiclient.discovery import build
 
 import shelve
 import json
-import time
+import pandas as pd
+import csv
 
 
 """make a list of links for all the articles that have the keywords from a 
@@ -57,9 +58,9 @@ Basics > Details > Search Engine ID
 #paper='inforwars'
 #custom_search_id = '010452994600902477721:qxbs3slzoje'
 
-#American Conservative
-paper = 'americanCon'
-custom_search_id = '010452994600902477721:kqnmvpbnwxc'
+#The Blaze
+paper = 'blaze'
+custom_search_id = '010452994600902477721:hc9rksv3eos'
 
 
 # "Liberal"
@@ -83,6 +84,8 @@ custom_search_id = '010452994600902477721:kqnmvpbnwxc'
 #paper='msnbc'
 #custom_search_id = '010452994600902477721:qeubtpqw868'
 
+#papers=['fox', 'wsj', 'breitbart', 'inforwars', 'blaze', 'nyt', 'npr', 'huffpo', 'atlantic', 'msnbc']
+papers=['wsj', 'inforwars', 'nyt', 'npr', 'huffpo', 'atlantic', 'msnbc']
 
 def getService():
     service = build("customsearch", "v1",
@@ -90,28 +93,28 @@ def getService():
     return service
 
 def pagesearch(engineid, wordlist, paper):
-    pageLimit = 10
-    service = getService()
-    startIndex = 1
-    response = []
-
-    for nPage in range(0, pageLimit):
-        for word in wordlist:
-            response.append(service.cse().list(
-                q=word, #Search words
-                cx=engineid,  #CSE Key
-                #lr='lang_pt', #Search language
-                start=startIndex
-            ).execute())
-    
-            startIndex = response[nPage].get("queries").get("nextPage")[0].get("startIndex")
-
-    with open(paper+'data.json', 'w') as outfile:
-        json.dump(response, outfile)
-
-    outfile.close()
+#    pageLimit = 10
+#    service = getService()
+#    startIndex = 1
+#    response = []
 #
-    data = json.load(open(paper+'data.json'))
+#    for nPage in range(0, pageLimit):
+#        for word in wordlist:
+#            response.append(service.cse().list(
+#                q=word, #Search words
+#                cx=engineid,  #CSE Key
+#                #lr='lang_pt', #Search language
+#                start=startIndex
+#            ).execute())
+#    
+#            startIndex = response[nPage].get("queries").get("nextPage")[0].get("startIndex")
+#
+#    with open('newsLinkLists/'+paper+'data.json', 'w') as outfile:
+#        json.dump(response, outfile)
+#
+#    outfile.close()
+#
+    data = json.load(open('newsLinkLists/'+paper+'data.json'))
     links=[]
     
     for obj in data:
@@ -139,15 +142,18 @@ class SavedArticles(AttrDisplay):
     def keyWordCount(text):
         pass
 
+artids = []
+
 
 def paperdb(links, paper):
     #use the results of the json file and find only the links.
-    db = shelve.open(paper+'db')
-    
+    csvfile = open(paper+'.csv', 'w')
+    w = csv.writer(csvfile)
     #Use the newspaper module to parse the articles
     for url in links:
         try:
             article = Article(url)
+            
             article.download()
             article.parse()
             
@@ -155,21 +161,26 @@ def paperdb(links, paper):
             text = article.text
             date = article.publish_date
             
-            artid = ('a'+ str(links.index(url)))
+            artid = (paper+ str(links.index(url)))
+            w.writerow([artid, author, date, url, text])
+            
             artid = SavedArticles(artid, author, date, url, text)
-            db[artid.artid] = artid
+            artids.append(artid.artid)
+
         except:
             pass
-            
-    db.close()
+    return artids
 
-links = pagesearch(custom_search_id, wordlist, paper)
-paperdb(links, paper)
-
-
-if __name__ =='__main__':
-    mydb = shelve.open(paper+'db')
-    print(len(mydb))
+        
+#for paper in papers:
+#    links = pagesearch(custom_search_id, wordlist, paper)
+#    artids = paperdb(links, paper)
+#    print(paper, len(artids), 'done')
+    
+links = pagesearch(custom_search_id, wordlist, 'fox')
+artids = paperdb(links, 'fox')
+print('fox', len(artids), 'done')
+    
 
 
     
