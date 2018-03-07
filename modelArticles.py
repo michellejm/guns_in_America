@@ -9,6 +9,7 @@ Created on Mon Mar  5 16:41:58 2018
 import nltk
 import pandas as pd
 import numpy as np
+import csv
 
 
 from nltk.stem import WordNetLemmatizer
@@ -18,6 +19,7 @@ from sklearn.decomposition import NMF
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.cluster import KMeans
 
+paper = 'msnbc'
 
 def makedf(paper):
     badwords = ['flu', 'Russia', 'nuclear', 'Korea', 'Turkey']
@@ -38,7 +40,7 @@ def my_tokenizer(s):
     return tokens
 
 
-mydf = makedf('msnbc')
+mydf = makedf(paper)
 
 
 tokenized=[]
@@ -53,28 +55,24 @@ print(len(tokenized))
 tfidf_vectorizer = TfidfVectorizer(max_df = 0.3, min_df = 20, stop_words=stops)
 tfidf = tfidf_vectorizer.fit_transform(tokenized)
 tfidf_feature_names = tfidf_vectorizer.get_feature_names()
-nmf = NMF(n_components = 10, random_state = 1, alpha = .1).fit(tfidf)
+nmf = NMF(n_components = 15, random_state = 1, alpha = .1).fit(tfidf)
 
-def print_top_words(model, feature_names, n_top_words):
+topiclist=[]
+def get_top_words(model, feature_names, n_top_words, paper):
+    csvfile = open('topics/'+paper+'topics.csv', 'w')
+    w = csv.writer(csvfile)
+    w.writerow(['topicID', 'topics'])
     for topic_idx, topic in enumerate(model.components_):
-        print("Topic #%d:" % topic_idx)
-        print(" ".join([feature_names[i]
-                        for i in topic.argsort()[:-n_top_words - 1:-1]]))
-    print()
+        tops = " ".join([feature_names[i] for i in topic.argsort()[:-n_top_words - 1:-1]])
+        topiclist.append((topic_idx, tops))
+    for tup in topiclist:
+        w.writerow(tup)
+    return topiclist
 
 
 transformed_data = nmf.transform(tfidf)
 len(transformed_data)
 
-print_top_words(nmf, tfidf_feature_names, 20)
-
-        
-
-
-    
-        
-#
-#if __name__ == "__main__":
-#    mydf = makedf('breitbart')
+print(get_top_words(nmf, tfidf_feature_names, 10, paper))
 
     
