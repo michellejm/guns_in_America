@@ -1,14 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Sun Mar  4 15:36:09 2018
-
-@author: mam
-"""
-
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
 Created on Fri Mar  2 09:34:47 2018
 
 @author: mam
@@ -84,8 +76,8 @@ custom_search_id = '010452994600902477721:hc9rksv3eos'
 #paper='msnbc'
 #custom_search_id = '010452994600902477721:qeubtpqw868'
 
-#papers=['fox', 'wsj', 'breitbart', 'inforwars', 'blaze', 'nyt', 'npr', 'huffpo', 'atlantic', 'msnbc']
-papers=['wsj', 'inforwars', 'nyt', 'npr', 'huffpo', 'atlantic', 'msnbc']
+papers=['fox', 'wsj', 'breitbart', 'inforwars', 'blaze', 'nyt', 'npr', 'huffpo', 'atlantic', 'msnbc']
+
 
 def getService():
     service = build("customsearch", "v1",
@@ -164,22 +156,19 @@ def paperdb(links, paper):
             artid = (paper+ str(links.index(url)))
             w.writerow([artid, author, date, url, text])
             
-            artid = SavedArticles(artid, author, date, url, text)
-            artids.append(artid.artid)
+            art = SavedArticles(artid, paper, author, date, url, text)
+            artids.append(art.artid)
 
         except:
             pass
     return artids
 
         
-#for paper in papers:
-#    links = pagesearch(custom_search_id, wordlist, paper)
-#    artids = paperdb(links, paper)
-#    print(paper, len(artids), 'done')
-    
-links = pagesearch(custom_search_id, wordlist, 'fox')
-artids = paperdb(links, 'fox')
-print('fox', len(artids), 'done')
+for paper in papers:
+    links = pagesearch(custom_search_id, wordlist, paper)
+    artids = paperdb(links, paper)
+    print(paper, len(artids), 'done')
+
     
 
 

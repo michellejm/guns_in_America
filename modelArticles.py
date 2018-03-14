@@ -14,16 +14,21 @@ import csv
 
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
-from sklearn.feature_extraction.stop_words import ENGLISH_STOP_WORDS
 from sklearn.decomposition import NMF
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.cluster import KMeans
 
-paper = 'msnbc'
+papers=['fox', 'wsj', 'breitbart', 'inforwars', 'blaze', 'nyt', 'npr', 'huffpo', 'atlantic', 'msnbc']
+
+paper = 'allpapers'
+numtops=40
+
+
 
 def makedf(paper):
     badwords = ['flu', 'Russia', 'nuclear', 'Korea', 'Turkey']
     df = pd.read_csv('artc/'+paper+'.csv', names=['aid', 'author', 'date', 'url', 'content'])
+    df['paper']=np.where(df.aid.str.contains('fox|wsj|breitbart|inforwars|blaze|nyt|npr|huffpo|atlantic|msnbc'), df.aid.str[:3], 'other')
     for word in badwords:
         df = df[df.content.str.contains(word) ==False]
     return df
@@ -42,24 +47,23 @@ def my_tokenizer(s):
 
 mydf = makedf(paper)
 
-
 tokenized=[]
 for k,v in mydf.iterrows():
     tok = (v['content'])
     tokens = my_tokenizer(tok)
-    for t in tokens:
-        tokenized.append(t)
+    tokenized.append(str(tokens))
 
-print(len(tokenized))
+print(len(tokenized), "articles")
+mydf['clean_content']=tokenized
 
 tfidf_vectorizer = TfidfVectorizer(max_df = 0.3, min_df = 20, stop_words=stops)
-tfidf = tfidf_vectorizer.fit_transform(tokenized)
+tfidf = tfidf_vectorizer.fit_transform(mydf['clean_content'])
 tfidf_feature_names = tfidf_vectorizer.get_feature_names()
-nmf = NMF(n_components = 15, random_state = 1, alpha = .1).fit(tfidf)
+nmf = NMF(n_components = numtops, random_state = 1, alpha = .1).fit(tfidf)
 
 topiclist=[]
 def get_top_words(model, feature_names, n_top_words, paper):
-    csvfile = open('topics/'+paper+'topics.csv', 'w')
+    csvfile = open('topics/'+paper+'topics'+str(numtops)+'.csv', 'w')
     w = csv.writer(csvfile)
     w.writerow(['topicID', 'topics'])
     for topic_idx, topic in enumerate(model.components_):
@@ -71,8 +75,16 @@ def get_top_words(model, feature_names, n_top_words, paper):
 
 
 transformed_data = nmf.transform(tfidf)
-len(transformed_data)
 
-print(get_top_words(nmf, tfidf_feature_names, 10, paper))
+print(get_top_words(nmf, tfidf_feature_names, 7, paper))
 
     
+transdata = pd.DataFrame(transformed_data)
+transdata['paper']=mydf['paper']
+transdata['artid']=mydf['aid']
+
+print(type(transdata))
+
+
+outfile=open('topics-quantified.csv', 'w')
+transdata.to_csv(outfile)
