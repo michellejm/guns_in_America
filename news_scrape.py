@@ -50,9 +50,9 @@ Basics > Details > Search Engine ID
 #paper='inforwars'
 #custom_search_id = '010452994600902477721:qxbs3slzoje'
 
-#The Blaze
-paper = 'blaze'
-custom_search_id = '010452994600902477721:hc9rksv3eos'
+##The Blaze
+#paper = 'blaze'
+#custom_search_id = '010452994600902477721:hc9rksv3eos'
 
 
 # "Liberal"
@@ -72,9 +72,9 @@ custom_search_id = '010452994600902477721:hc9rksv3eos'
 #paper='atlantic'
 #custom_search_id = '010452994600902477721:teqeyj5cokk'
 
-##MSNBC
-#paper='msnbc'
-#custom_search_id = '010452994600902477721:qeubtpqw868'
+#MSNBC
+paper='msnbc'
+custom_search_id = '010452994600902477721:qeubtpqw868'
 
 papers=['fox', 'wsj', 'breitbart', 'inforwars', 'blaze', 'nyt', 'npr', 'huffpo', 'atlantic', 'msnbc']
 
@@ -123,8 +123,9 @@ def pagesearch(engineid, wordlist, paper):
 links = pagesearch(custom_search_id, wordlist, paper)
 
 class SavedArticles(AttrDisplay):
-    def __init__(self, artid, author, date, link, text):
+    def __init__(self, artid, paper, author, date, link, text):
         self.artid = artid
+        self.paper = paper
         self.author = author
         self.date = date
         self.link = link
@@ -134,13 +135,15 @@ class SavedArticles(AttrDisplay):
     def keyWordCount(text):
         pass
 
-artids = []
+
 
 
 def paperdb(links, paper):
     #use the results of the json file and find only the links.
     csvfile = open(paper+'.csv', 'w')
     w = csv.writer(csvfile)
+    #make an empty list to check that it finished
+    artids = []
     #Use the newspaper module to parse the articles
     for url in links:
         try:
@@ -154,7 +157,7 @@ def paperdb(links, paper):
             date = article.publish_date
             
             artid = (paper+ str(links.index(url)))
-            w.writerow([artid, author, date, url, text])
+            w.writerow([artid, paper, author, date, url, text])
             
             art = SavedArticles(artid, paper, author, date, url, text)
             artids.append(art.artid)

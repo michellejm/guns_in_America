@@ -21,14 +21,16 @@ from sklearn.cluster import KMeans
 papers=['fox', 'wsj', 'breitbart', 'inforwars', 'blaze', 'nyt', 'npr', 'huffpo', 'atlantic', 'msnbc']
 
 paper = 'allpapers'
-numtops=40
+numtops=30
 
 
 
 def makedf(paper):
+    
+    df = pd.read_csv('artc/'+paper+'.csv', names=['aid', 'paper', 'author', 'date', 'url', 'content'])
+    #df['paper']=np.where(df.aid.str.contains('fox|wsj|breitbart|inforwars|blaze|nyt|npr|huffpo|atlantic|msnbc'), df.aid.str[:3], 'other')
+    #remove other types of shots
     badwords = ['flu', 'Russia', 'nuclear', 'Korea', 'Turkey']
-    df = pd.read_csv('artc/'+paper+'.csv', names=['aid', 'author', 'date', 'url', 'content'])
-    df['paper']=np.where(df.aid.str.contains('fox|wsj|breitbart|inforwars|blaze|nyt|npr|huffpo|atlantic|msnbc'), df.aid.str[:3], 'other')
     for word in badwords:
         df = df[df.content.str.contains(word) ==False]
     return df
@@ -84,6 +86,7 @@ transdata['paper']=mydf['paper']
 transdata['artid']=mydf['aid']
 
 print(type(transdata))
+print(transdata)
 
 
 outfile=open('topics-quantified.csv', 'w')

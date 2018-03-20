@@ -1,0 +1,10 @@
+Projects on Media Bias using Sentiment Analysis and Topic Modelling
+
+Media Bias and Sentiment analysis of CBS, NBC, and Fox
+https://www.julienphalip.com/blog/identifying-bias-in-the-media-with-sentiment/
+
+Topic Modelling of articles about Trump on NYTimes
+https://robinsones.github.io/Topic-Modeling-the-New-York-Times-and-Trump/
+
+Identifying Political Ideology Using Recursive Neural Networks
+https://people.cs.umass.edu/~miyyer/pubs/2014_RNN_framing.pdf
