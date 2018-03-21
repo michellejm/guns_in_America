@@ -14,11 +14,15 @@ import numpy as np
 
 df = pd.read_csv('topics-quantified.csv', header=0, index_col=0)
 dftopics = pd.read_csv('topics/allpaperstopics30-coded.csv', header=0)
+
 #fill in missing papers
 df['paper'].fillna(method='ffill', inplace=True)
 
 #find the average weight of each topic per paper
 dfgrp=df.groupby('paper').mean()
+
+#find the biggest topic for each paper
+maxes=dfgrp.idxmax(axis=1)
 
 #transpose that df
 dft=dfgrp.T
@@ -26,20 +30,13 @@ dft['topicID']=list(range(0,30))
 
 #join the topics to the dataframe
 dfj=pd.merge(dft, dftopics, how='inner',on='topicID')
-
 dfj.drop(['topics', 'topicID'], axis=1, inplace=True)
+
 #filter out topics that are below .01 in weight
 dfth=dfj[dfj>.01]
 
 
-print(dfth)
+dfth.plot(kind='bar')
 
-
-#dfsum['max']=dfsum.idxmax(axis=1)
-
-#print(dfsmall['atlantic'].sort_values())
-
-#dfsum.plot(kind='bar')
-#dfsmall.plot(kind='bar')
-
-#print(dfsmall)
+df1=dfth[dfth['global']=='legal']
+print(df1.stack())
