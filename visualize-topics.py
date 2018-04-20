@@ -30,13 +30,17 @@ dft['topicID']=list(range(0,30))
 
 #join the topics to the dataframe
 dfj=pd.merge(dft, dftopics, how='inner',on='topicID')
-dfj.drop(['topics', 'topicID'], axis=1, inplace=True)
+dfj.drop(['topicID'], axis=1, inplace=True)
 
 #filter out topics that are below .01 in weight
-dfth=dfj[dfj>.01]
+#dfj=dfj[dfj>.01]
 
 
-dfth.plot(kind='bar')
+#dfj.plot(kind='bar')
 
-df1=dfth[dfth['global']=='legal']
-print(df1.stack())
+#dfj=dfj[dfj['global']=='nra']
+print(dfj)
+
+outfile=open('alltopics-weights.csv', 'w')
+dfj.to_csv(outfile)
+

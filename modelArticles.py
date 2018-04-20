@@ -18,6 +18,7 @@ from sklearn.decomposition import NMF
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.cluster import KMeans
 
+
 papers=['fox', 'wsj', 'breitbart', 'inforwars', 'blaze', 'nyt', 'npr', 'huffpo', 'atlantic', 'msnbc']
 
 paper = 'allpapers'
@@ -46,7 +47,6 @@ def my_tokenizer(s):
     tokens = [t for t in tokens if t not in stops]
     return tokens
 
-
 mydf = makedf(paper)
 
 tokenized=[]
@@ -58,13 +58,18 @@ for k,v in mydf.iterrows():
 print(len(tokenized), "articles")
 mydf['clean_content']=tokenized
 
+ofile=open('cleandataset.csv', 'w')
+mydf.to_csv(ofile)
+
+""" Topic modelling using NMF"""
 tfidf_vectorizer = TfidfVectorizer(max_df = 0.3, min_df = 20, stop_words=stops)
 tfidf = tfidf_vectorizer.fit_transform(mydf['clean_content'])
 tfidf_feature_names = tfidf_vectorizer.get_feature_names()
 nmf = NMF(n_components = numtops, random_state = 1, alpha = .1).fit(tfidf)
 
-topiclist=[]
+
 def get_top_words(model, feature_names, n_top_words, paper):
+    topiclist=[]
     csvfile = open('topics/'+paper+'topics'+str(numtops)+'.csv', 'w')
     w = csv.writer(csvfile)
     w.writerow(['topicID', 'topics'])
@@ -75,7 +80,6 @@ def get_top_words(model, feature_names, n_top_words, paper):
         w.writerow(tup)
     return topiclist
 
-
 transformed_data = nmf.transform(tfidf)
 
 print(get_top_words(nmf, tfidf_feature_names, 7, paper))
@@ -85,9 +89,11 @@ transdata = pd.DataFrame(transformed_data)
 transdata['paper']=mydf['paper']
 transdata['artid']=mydf['aid']
 
-print(type(transdata))
-print(transdata)
 
+    
 
-outfile=open('topics-quantified.csv', 'w')
-transdata.to_csv(outfile)
+#print(transdata)
+#
+#
+#outfile=open('topics-quantified.csv', 'w')
+#transdata.to_csv(outfile)

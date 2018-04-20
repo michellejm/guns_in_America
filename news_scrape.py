@@ -85,27 +85,27 @@ def getService():
     return service
 
 def pagesearch(engineid, wordlist, paper):
-#    pageLimit = 10
-#    service = getService()
-#    startIndex = 1
-#    response = []
-#
-#    for nPage in range(0, pageLimit):
-#        for word in wordlist:
-#            response.append(service.cse().list(
-#                q=word, #Search words
-#                cx=engineid,  #CSE Key
-#                #lr='lang_pt', #Search language
-#                start=startIndex
-#            ).execute())
-#    
-#            startIndex = response[nPage].get("queries").get("nextPage")[0].get("startIndex")
-#
-#    with open('newsLinkLists/'+paper+'data.json', 'w') as outfile:
-#        json.dump(response, outfile)
-#
-#    outfile.close()
-#
+    pageLimit = 10
+    service = getService()
+    startIndex = 1
+    response = []
+
+    for nPage in range(0, pageLimit):
+        for word in wordlist:
+            response.append(service.cse().list(
+                q=word, #Search words
+                cx=engineid,  #CSE Key
+                #lr='lang_pt', #Search language
+                start=startIndex
+            ).execute())
+    
+            startIndex = response[nPage].get("queries").get("nextPage")[0].get("startIndex")
+
+    with open('newsLinkLists/'+paper+'data.json', 'w') as outfile:
+        json.dump(response, outfile)
+
+    outfile.close()
+
     data = json.load(open('newsLinkLists/'+paper+'data.json'))
     links=[]
     
@@ -167,14 +167,14 @@ def paperdb(links, paper):
     return artids
 
         
-for paper in papers:
-    links = pagesearch(custom_search_id, wordlist, paper)
-    artids = paperdb(links, paper)
-    print(paper, len(artids), 'done')
+#for paper in papers:
+#    links = pagesearch(custom_search_id, wordlist, paper)
+#    artids = paperdb(links, paper)
+#    print(paper, len(artids), 'done')
 
     
-
-
-    
+links = pagesearch(custom_search_id, wordlist, paper)
+artids = paperdb(links, paper)
+print(paper, len(artids), 'done')    
 
     
