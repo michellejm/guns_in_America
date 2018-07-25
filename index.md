@@ -60,9 +60,9 @@ Once the corpus was collected, I transformed each article into a word vector tha
 
 The next step was to transform the list of words in each article into a series of vectors representing the article in relationship to the corpus. For example, let's say we have three articles. The first is about "the second amendment and the right to bear arms." The second is about "gun control and concealed carry laws." The third is about "the guns used in the Parkland shooting." For the purposes of demonstration, pretend that those quotes are the only words in each article. If we remove the stop words, normalize our words, and lemmatize them, our three articles now look like this:
 
-1: second amendment right bear arm
+1. second amendment right bear arm
 
-2: gun control conceal carry law
+2. gun control conceal carry law
 
 3. gun use parkland shoot
 
@@ -70,11 +70,11 @@ Across our entire corpus, we have 13 unique words. We can transform each article
 
 second, amendment, right, bear, arm, gun, control, conceal, carry, law, use, parkland, shoot
 
-1: [1,1,1,1,1,0,0,0,0,0,0,0,0]
+1. [1,1,1,1,1,0,0,0,0,0,0,0,0]
 
-2: [0,0,0,0,0,1,1,1,1,1,0,0,0]
+2. [0,0,0,0,0,1,1,1,1,1,0,0,0]
 
-3: [0,0,0,0,0,1,0,0,0,0,1,1,1]
+3. [0,0,0,0,0,1,0,0,0,0,1,1,1]
 
 However, this too is a simplification. The bag of words statistic is actually created through a scoring metric called term frequency-inverse document frequency (tf-idf). Tf-idf is a non-binary statistic that represents the importance of a given word to the meaning of the article. This number increases every time a word appears in the article relative to the corpus. So, if a word is very common across all articles, its value in a tf-idf is low, whereas if a word appears many times in one article, but infrequently across the corpus, its value will be high. 
 
