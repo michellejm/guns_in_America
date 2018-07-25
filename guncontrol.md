@@ -22,9 +22,11 @@ Wall Street Journal, Fox News, Breitbart, the Blaze, and Infowars
 
 Furthermore, it should be noted that conservative-identified respondents rely on Fox News more than any other source whereas liberal-identified respondents reported drawing on multiple different outlets. This may introduce some bias with respect to how influential each outlet is for different groups. However, in an attempt to capture the polarization of the conversation, the influence each outlet contributes to the total is unweighted.
 
-The outlets were ranked based on degree of polarity, degree or trust, and a composite ranking. For polarization, a 5 is very polarized because they are consumed by "consistent conservatives" or "consistent liberals" and a 1 is consumed by people who identify as more central. The degree of trust was similarly ranked, where 5 is more trusted than distrusted and -5 is more distrusted than trusted. Finally, the overall rating is the trust ranking minus the polarity. Using this metric, the Wall Street Journal has the highest rank followed by NPR because they are widely trusted and are read by more central audiences - they are more trustworthy than polarizing. InfoWars has the lowest score followed by the Nation because they are both read by highly polarized audiences though they are not widely trusted.
+The outlets were ranked based on degree of polarity, degree or trust, and a composite ranking. For polarization, a 5 is very polarized because they are consumed by "consistent conservatives" or "consistent liberals" and a 1 is consumed by people who identify as more central. The degree of trust was similarly ranked, where 5 is more trusted than distrusted and -5 is more distrusted than trusted. 
 
-The Blaze and New York Times (NYT) are similarly ranked, though the Blaze is read by more polarized readers than the NYT. Their ranking is in part because consistently conservative readers trust the Blaze and distrust the NYT whereas the opposite is true for consistently liberal readers. The result is that the mid-range media sources are the Blaze, NYT, and Fox News.  
+Finally, I calculated an overall rating by subtracting the polarity from the trust. Using this metric, the Wall Street Journal has the highest rank (it is the least polar and most trusted by the widest range of people) followed by NPR because they are widely trusted and are read by more central audiences - they are more trustworthy than polarizing. InfoWars has the lowest score followed by the Nation because they are both read by highly polarized audiences though they are not widely trusted even by some people who identify with their polar skew.
+
+The Blaze and New York Times (NYT) are similarly ranked, even though the Blaze is read by more polarized readers than the NYT. Their ranking is in part because consistently conservative readers trust the Blaze and distrust the NYT whereas the opposite is true for consistently liberal readers. The result is that the mid-range media sources are the Blaze, NYT, and Fox News.  
 
 
 | Outlet	| Trust  | Polarity  | Rank |
@@ -41,7 +43,7 @@ The Blaze and New York Times (NYT) are similarly ranked, though the Blaze is rea
 | InfoWars	| -5	 | 5		 | -10  |
 
 
-
+While this ranking has its own significant bias in it, it offers a useful way to rank the combination of how much each outlet it trusted across a polarized audience. This is not to say that any outlet **should** have any particular ranking, only that within this ecosystem, this is what the composite trust/polarity 
 
 
 ### Collecting the Corpus
@@ -59,14 +61,19 @@ Once the corpus was collected, I transformed each article into a word vector tha
 The next step was to transform the list of words in each article into a series of vectors representing the article in relationship to the corpus. For example, let's say we have three articles. The first is about "the second amendment and the right to bear arms." The second is about "gun control and concealed carry laws." The third is about "the guns used in the Parkland shooting." For the purposes of demonstration, pretend that those quotes are the only words in each article. If we remove the stop words, normalize our words, and lemmatize them, our three articles now look like this:
 
 1: second amendment right bear arm
+
 2: gun control conceal carry law
+
 3. gun use parkland shoot
 
 Across our entire corpus, we have 13 unique words. We can transform each article into a vector, and the corpus into a matrix by assigning a 0 or 1 if the word appears or not. 
 
 second, amendment, right, bear, arm, gun, control, conceal, carry, law, use, parkland, shoot
+
 1: [1,1,1,1,1,0,0,0,0,0,0,0,0]
+
 2: [0,0,0,0,0,1,1,1,1,1,0,0,0]
+
 3: [0,0,0,0,0,1,0,0,0,0,1,1,1]
 
 However, this too is a simplification. The bag of words statistic is actually created through a scoring metric called term frequency-inverse document frequency (tf-idf). Tf-idf is a non-binary statistic that represents the importance of a given word to the meaning of the article. This number increases every time a word appears in the article relative to the corpus. So, if a word is very common across all articles, its value in a tf-idf is low, whereas if a word appears many times in one article, but infrequently across the corpus, its value will be high. 
@@ -108,7 +115,12 @@ Without human interpretation, these topics are meaningless, but this is also one
 | 22	| attack american government left report military official used member including| attack american| culture     | government      |
 | 23	| shot man killed read year police old morning two 2016	                        | shot man	    | incident	   | mass shooting   |
 
+### Analysis 
 
-I then tallied what percentage of each topic dominated each type of outlet. The results are shown in the treemaps below. Overall, there was actually very little difference in Conservative versus Liberal media outlets. 
+I then tallied what percentage of each general topic dominated each type of outlet, and what specific topics were the most explored by each media source. I further looked at what specific topics were the most polarizing from liberal to conservative, and investigated the coverage of both specific topics and general topics based on the trust/polarization score of each outlet. The results are below.
+
+## Results
+
+Overall, there was very little difference in coverage of each general topic by Conservative versus Liberal media outlets. The treemaps below illustrate the differences. 
 
 
