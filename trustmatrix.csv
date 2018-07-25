@@ -1,0 +1,11 @@
+,trust,polarity,rank,cons_pol,lib_pol
+wsj,4,1,3,1,-1
+npr,5,4,1,-4,4
+msnbc,1,1,0,-1,1
+blaze,3,4,-1,4,-4
+nyt,2,3,-1,-3,3
+fox,-1,2,-3,2,-2
+breitbart,-2,3,-5,3,-3
+huffpo,-3,2,-5,-2,2
+nation,-4,5,-9,-5,5
+inforwars,-5,5,-10,5,-5

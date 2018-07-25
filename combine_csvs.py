@@ -8,15 +8,15 @@ Created on Thu Mar  8 11:39:59 2018
 
 import csv
 
-papers=['fox', 'wsj', 'breitbart', 'inforwars', 'blaze', 'nyt', 'npr', 'huffpo', 'atlantic', 'msnbc']
+papers=['wsj', 'npr', 'msnbc', 'blaze',  'nyt', 'fox', 'breitbart', 'huffpo', 'nation', 'inforwars']
 
-fout=open("artc/allpapers.csv","a")
+fout=open("articles/allpapers.csv", "a")
 for paper in papers:
-    for line in open("artc/"+paper+".csv"):
+    for line in open("articles/"+paper+".csv"):
          fout.write(line)  
 fout.close()
          
-fin = open("artc/allpapers.csv","r")
+fin = open("articles/allpapers.csv","r")
 print(sum(1 for line in csv.reader(fin)))
 
 

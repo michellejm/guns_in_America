@@ -6,45 +6,38 @@ Created on Mon Mar  5 16:41:58 2018
 @author: mam
 """
 
+
+
 import nltk
 import pandas as pd
 import numpy as np
 import csv
 
-
-from nltk.stem import WordNetLemmatizer
-from nltk.corpus import stopwords
 from sklearn.decomposition import NMF
-from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
-from sklearn.cluster import KMeans
+from sklearn.feature_extraction.text import TfidfVectorizer
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
 
-
-papers=['fox', 'wsj', 'breitbart', 'inforwars', 'blaze', 'nyt', 'npr', 'huffpo', 'atlantic', 'msnbc']
-
+stops = stopwords.words('english')
+papers=['wsj', 'npr', 'msnbc', 'blaze',  'nyt', 'fox', 'breitbart', 'huffpo', 'nation', 'inforwars']
 paper = 'allpapers'
-numtops=30
-
-
 
 def makedf(paper):
-    
-    df = pd.read_csv('artc/'+paper+'.csv', names=['aid', 'paper', 'author', 'date', 'url', 'content'])
-    #df['paper']=np.where(df.aid.str.contains('fox|wsj|breitbart|inforwars|blaze|nyt|npr|huffpo|atlantic|msnbc'), df.aid.str[:3], 'other')
+    df = pd.read_csv('articles/'+paper+'.csv', names=['aid', 'paper', 'author', 'date', 'url', 'content'])
     #remove other types of shots
     badwords = ['flu', 'Russia', 'nuclear', 'Korea', 'Turkey']
     for word in badwords:
         df = df[df.content.str.contains(word) ==False]
     return df
 
-stops = stopwords.words('english')
 wordnet_lemmatizer = WordNetLemmatizer()
 
 def my_tokenizer(s):
     s =s.lower()
     tokens = nltk.tokenize.word_tokenize(s)
     tokens = [t for t in tokens if len(t) >2]
-    tokens = [wordnet_lemmatizer.lemmatize(t) for t in tokens]
     tokens = [t for t in tokens if t not in stops]
+    tokens = [wordnet_lemmatizer.lemmatize(t) for t in tokens]
     return tokens
 
 mydf = makedf(paper)
@@ -55,14 +48,18 @@ for k,v in mydf.iterrows():
     tokens = my_tokenizer(tok)
     tokenized.append(str(tokens))
 
-print(len(tokenized), "articles")
+
 mydf['clean_content']=tokenized
 
 ofile=open('cleandataset.csv', 'w')
 mydf.to_csv(ofile)
 
+
+
+numtops=24
+
 """ Topic modelling using NMF"""
-tfidf_vectorizer = TfidfVectorizer(max_df = 0.3, min_df = 20, stop_words=stops)
+tfidf_vectorizer = TfidfVectorizer(max_df = 0.9, min_df = .1, stop_words=stops)
 tfidf = tfidf_vectorizer.fit_transform(mydf['clean_content'])
 tfidf_feature_names = tfidf_vectorizer.get_feature_names()
 nmf = NMF(n_components = numtops, random_state = 1, alpha = .1).fit(tfidf)
@@ -70,7 +67,7 @@ nmf = NMF(n_components = numtops, random_state = 1, alpha = .1).fit(tfidf)
 
 def get_top_words(model, feature_names, n_top_words, paper):
     topiclist=[]
-    csvfile = open('topics/'+paper+'topics'+str(numtops)+'.csv', 'w')
+    csvfile = open('topics/'+paper+str(numtops)+'.csv', 'w')
     w = csv.writer(csvfile)
     w.writerow(['topicID', 'topics'])
     for topic_idx, topic in enumerate(model.components_):
@@ -82,18 +79,21 @@ def get_top_words(model, feature_names, n_top_words, paper):
 
 transformed_data = nmf.transform(tfidf)
 
-print(get_top_words(nmf, tfidf_feature_names, 7, paper))
-
+topiclist = get_top_words(nmf, tfidf_feature_names, 10, paper)
     
 transdata = pd.DataFrame(transformed_data)
 transdata['paper']=mydf['paper']
-transdata['artid']=mydf['aid']
+transdata['aid']=mydf['aid']
 
 
+outfile=open('topics-quantified_revised'+str(numtops)+'.csv', 'w')
+transdata.to_csv(outfile)
+
+outfile2=open('topics_list_revised'+str(numtops)+'.csv', 'w')
+csv_out=csv.writer(outfile2)
+for row in topiclist:
+    csv_out.writerow(row)
     
+outfile.close()
+outfile2.close()
 
-#print(transdata)
-#
-#
-#outfile=open('topics-quantified.csv', 'w')
-#transdata.to_csv(outfile)

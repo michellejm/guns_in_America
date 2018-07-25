@@ -17,6 +17,7 @@ import shelve
 import json
 import pandas as pd
 import csv
+import time
 
 
 """make a list of links for all the articles that have the keywords from a 
@@ -68,15 +69,26 @@ Basics > Details > Search Engine ID
 #paper='huffpo'
 #custom_search_id = '010452994600902477721:e2pfkbhxyao'
 
-##The Atlantic
-#paper='atlantic'
-#custom_search_id = '010452994600902477721:teqeyj5cokk'
+##The Nation
+paper='nation'
+custom_search_id = '010452994600902477721:z1ay996qaji'
 
 #MSNBC
-paper='msnbc'
-custom_search_id = '010452994600902477721:qeubtpqw868'
+#paper='msnbc'
+#custom_search_id = '010452994600902477721:qeubtpqw868'
 
-papers=['fox', 'wsj', 'breitbart', 'inforwars', 'blaze', 'nyt', 'npr', 'huffpo', 'atlantic', 'msnbc']
+cses = {'msnbc': '010452994600902477721:qeubtpqw868', 
+        'nation':'010452994600902477721:z1ay996qaji', 
+       'huffpo':'010452994600902477721:e2pfkbhxyao', 
+       'npr':'010452994600902477721:wjpsk4ndijs', 
+       'nyt':'010452994600902477721:_xacvksvdiy', 
+       'blaze': '010452994600902477721:hc9rksv3eos',
+       'infowars':'010452994600902477721:qxbs3slzoje', 
+       'breitbart':'010452994600902477721:jnqwe5bzppe', 
+       'wsj':'010452994600902477721:lg-xm4efonu',
+       'fox': '010452994600902477721:lrogmxjaknk'}
+
+papers=['fox', 'wsj', 'breitbart', 'infowars', 'blaze', 'nyt', 'npr', 'huffpo', 'nation', 'msnbc']
 
 
 def getService():
@@ -84,13 +96,13 @@ def getService():
             developerKey="AIzaSyC3bsWJ5I1dcA5Dqj3bVTTWtZo96lYwxvw")
     return service
 
-def pagesearch(engineid, wordlist, paper):
+def pagesearch(paper, engineid, wordlist):
     pageLimit = 10
     service = getService()
     startIndex = 1
     response = []
-
     for nPage in range(0, pageLimit):
+        time.sleep(.001)
         for word in wordlist:
             response.append(service.cse().list(
                 q=word, #Search words
@@ -98,9 +110,7 @@ def pagesearch(engineid, wordlist, paper):
                 #lr='lang_pt', #Search language
                 start=startIndex
             ).execute())
-    
             startIndex = response[nPage].get("queries").get("nextPage")[0].get("startIndex")
-
     with open('newsLinkLists/'+paper+'data.json', 'w') as outfile:
         json.dump(response, outfile)
 
@@ -120,8 +130,6 @@ def pagesearch(engineid, wordlist, paper):
             
     return links
 
-links = pagesearch(custom_search_id, wordlist, paper)
-
 class SavedArticles(AttrDisplay):
     def __init__(self, artid, paper, author, date, link, text):
         self.artid = artid
@@ -136,9 +144,7 @@ class SavedArticles(AttrDisplay):
         pass
 
 
-
-
-def paperdb(links, paper):
+def paperdb(paper, links):
     #use the results of the json file and find only the links.
     csvfile = open(paper+'.csv', 'w')
     w = csv.writer(csvfile)
@@ -173,8 +179,18 @@ def paperdb(links, paper):
 #    print(paper, len(artids), 'done')
 
     
-links = pagesearch(custom_search_id, wordlist, paper)
-artids = paperdb(links, paper)
-print(paper, len(artids), 'done')    
+#links = pagesearch(custom_search_id, wordlist, 'nation')
+data = json.load(open('newsLinkLists/'+'nation'+'data.json'))
+links=[]
+for obj in data:
+    embedded = obj['items']
+    for item in embedded:
+        mylink = item['link']
+        if mylink not in links:
+            links.append(mylink)
+        else:
+            pass
+artids = paperdb(paper, links)
+print(paper, len(artids), 'done')
 
     

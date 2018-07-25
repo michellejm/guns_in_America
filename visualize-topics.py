@@ -12,21 +12,23 @@ import numpy as np
 
 
 
-df = pd.read_csv('topics-quantified.csv', header=0, index_col=0)
-dftopics = pd.read_csv('topics/allpaperstopics30-coded.csv', header=0)
+df = pd.read_csv('topics-quantified_revised24.csv', header=0, index_col=0)
+dftopics = pd.read_csv('topics_list_24_coded.csv', header=0)
 
 #fill in missing papers
 df['paper'].fillna(method='ffill', inplace=True)
 
 #find the average weight of each topic per paper
 dfgrp=df.groupby('paper').mean()
+print(dfgrp.head(10))
 
 #find the biggest topic for each paper
 maxes=dfgrp.idxmax(axis=1)
 
 #transpose that df
 dft=dfgrp.T
-dft['topicID']=list(range(0,30))
+
+dft['topicID']=list(range(0,24))
 
 #join the topics to the dataframe
 dfj=pd.merge(dft, dftopics, how='inner',on='topicID')
@@ -41,6 +43,6 @@ dfj.drop(['topicID'], axis=1, inplace=True)
 #dfj=dfj[dfj['global']=='nra']
 print(dfj)
 
-outfile=open('alltopics-weights.csv', 'w')
+outfile=open('topics-weights24.csv', 'w')
 dfj.to_csv(outfile)
 
