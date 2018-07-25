@@ -37,41 +37,41 @@ Basics > Details > Search Engine ID
 #"Conservative"
 #FoxNews
 #paper = 'fox'
-#custom_search_id = '010452994600902477721:lrogmxjaknk'
+#custom_search_id = 'SECRET KEY'
 
 ##Wall Street Journal
 #paper = 'wsj'
-#custom_search_id = '010452994600902477721:lg-xm4efonu'
+#custom_search_id = 'SECRET KEY'
 
 ##Breitbart
 #paper = 'breitbart'
-#custom_search_id = '010452994600902477721:jnqwe5bzppe'
+#custom_search_id = 'SECRET KEY'
 
 ##InfoWars
 #paper='inforwars'
-#custom_search_id = '010452994600902477721:qxbs3slzoje'
+#custom_search_id = 'SECRET KEY'
 
 ##The Blaze
 #paper = 'blaze'
-#custom_search_id = '010452994600902477721:hc9rksv3eos'
+#custom_search_id = 'SECRET KEY'
 
 
 # "Liberal"
 ##NYTimes
 #paper = 'nyt'
-#custom_search_id = '010452994600902477721:_xacvksvdiy'
+#custom_search_id = 'SECRET KEY'
 
 ##NPR
 #paper='npr'
-#custom_search_id = '010452994600902477721:wjpsk4ndijs'
+#custom_search_id = 'SECRET KEY'
 
 ##HuffingtonPost
 #paper='huffpo'
-#custom_search_id = '010452994600902477721:e2pfkbhxyao'
+#custom_search_id = 'SECRET KEY'
 
 ##The Nation
 paper='nation'
-custom_search_id = '010452994600902477721:z1ay996qaji'
+custom_search_id = 'SECRET KEY
 
 #MSNBC
 #paper='msnbc'
