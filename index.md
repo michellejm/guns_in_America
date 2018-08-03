@@ -1,4 +1,4 @@
-# A Distant Reading of Politically Polarizing Events: Topic Modeling US Media Coverage
+# Politically Polarizing Media Coverage: Topic Modeling and Sentiment Analysis of the Gun Control and Immigration Debates
 
 ## A Polarized Landscape 
 
