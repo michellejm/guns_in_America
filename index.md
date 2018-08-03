@@ -117,10 +117,50 @@ Without human interpretation, these topics are meaningless, but this is also one
 
 ### Analysis 
 
-I then tallied what percentage of each general topic dominated each type of outlet, and what specific topics were the most explored by each media source. I further looked at what specific topics were the most polarizing from liberal to conservative, and investigated the coverage of both specific topics and general topics based on the trust/polarization score of each outlet. The results are below.
+#### Topic Modeling
+
+I then tallied what percentage of each general topic dominated each type of outlet, and what specific topics were the most explored by each media source. I further looked at what specific topics were the most polarizing from liberal to conservative, and investigated the coverage of both specific topics and general topics based on the trust/polarization score of each outlet. The results follow.
+
+#### Sentiment Analysis
+
+I then analyzed the sentiment of the first sentence of each article using [TextBlob's](http://textblob.readthedocs.io/en/dev/index.html) built-in, pre-trained [Sentiment Analyzer](http://textblob.readthedocs.io/en/dev/api_reference.html#module-textblob.en.sentiments). This classifier was trained on movie reviews and uses Naive Bayes classification. I needed a classifier that was trained on a different corpus because in our current political climate, I felt it would be nearly impossible to efficiently classify sentences without reifying the implicit bias I am attempting to address. Furthermore, I am biased. I know this about myself, and I also know that the majority of people I have contact with are biased in the same or opposite way. So I used a classifier that had already been trained on a different corpus. This may make the analysis weaker. However, it does allow me to have a supervised classification task without an annotated corpus. 
+
+I then looked at the sentiment over time and by each topic, each media outlet, and against the trust/polarity scores.
 
 ## Results
 
-Overall, there was very little difference in coverage of each general topic by Conservative versus Liberal media outlets. The treemaps below illustrate the differences. 
+### Topic Modeling
+
+Overall, there was very little difference in coverage of each general topic by Conservative versus Liberal media outlets. The treemaps below illustrate the small differences. 
+
+![Conservative Treemap](Conservativetreemap.png)
+
+![Liberal Treemap](Liberaltreemap.png)
+
+If instead we look at each topic along the degree of polarity, some interesting patterns emerge. Each of these graphs shows the prominence of the topic in each media outlet - ranked from those with a "consistently Conservative" readership to "consistently Liberal" (again, topics consisting of metadata or positional language (believe, said, etc.) were omitted. The order of outlets is:
+
+Infowars, Blaze, Breitbart, Fox, WSJ, MSNBC, Huffington Post, NYT, NPR, The Nation
+
+![small multiples: topic by polarity](cons-to-lib-all.png)
+
+For the most part, the topics are relatively consistently spread across the political spectrum, though two topics stand out: Trump and videos. The first is the topic about Trump. We already know that Trump is polarizing as a topic, but it also seems that some outlets cover him with relationship to gun control. Interestingly, those outlets are neither all liberal nor all conservative, but rather spread throughout. The second topic is the one about video cameras. At first, I thought this was about body cameras, but it is actually related to reporting on video footage from protests and other events. For example, many of the articles that contributed to this topic were about the Chalottesville "Unite the Right" protest in August 2017, where many self-identified white nationalists chose to carry guns, and there was significant reporting on the video footage that counter-protesters and others captured. What is interesting about this topic is how erratic it seems when viewed along a political continuum. 
+
+Some topics that we might have expected to appear differently in each media outlet do: the topic relating gun control and national identity is covered more broadly by conservative outlets than liberal ones, and the topic about culture and national identity shows the opposite trend. 
+
+If we look at this same data organized instead by ranking (a composite of degree of polarization and degree of trust). Both of these topics (Trump and video coverage) are almost ignored by the outlets that are low polarization/high trust and high polarization/low trust, but were very widely covered by the outlets ranked in the middle. 
+
+![small multiples: topic by ranking](rank-all.png)
+
+The gun control and national identity topic seems relatively consistent across rankings, but a new topic appears: one of the assault weapons topics is more prominent in the higer ranked outlets (low polarity/ high trust). This is the topic that discusses rifles extensively (rifle automatic military round semi assault fire style magazine long), explaining the relationship between "military-style assault rifles" and "semi-automatic rifles". The other version of this topic, which is consistent across media outlets focuses more on the weapons aspect of these types of guns. 
+
+If we look at the topics in terms of standard deviation to again identify those topics that are covered the most/least by different outlets, the same topics appear:
+
+* Trump
+* Gun control and the national identity
+* Coverage of videos shared on social media
+
+While these three topics do not seem to be, in and of themselves, able to account for the political polarization, they do seem to be adding to the ways in which the discussion diverges among self-selected groups. That is, some outlets cover these topics extensively, while others nearly avoid them - at least to a greater degree than other topics in the corpus. 
+
+#### Sentiment Analysis
 
 
