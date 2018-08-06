@@ -1,4 +1,4 @@
-,trust,polarity,rank,cons_pol,lib_pol
+paper,trust,polarity,rank,cons_pol,lib_pol
 wsj,4,1,3,1,-1
 npr,5,4,1,-4,4
 msnbc,1,1,0,-1,1
