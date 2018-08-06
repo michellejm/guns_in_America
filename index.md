@@ -171,13 +171,13 @@ While these three topics do not seem to be, in and of themselves, able to accoun
 
 Before looking at sentiment, we first look at the degree of subjectivity. Our classifier returned a subjectivity value ranging from 0.0 to 1.0 (very subjective). A rating of at least 0.65 means that and article was classified as "subjective". The proportion of subjective articles to total number of articles in the corpus for each media outlet is shown in the table below. 
 
-![subjectivity chart](avg_sent.png)
+![subjectivity chart](percent_subjective.png)
 
 We see that Fox News is actually far below the average, and Huffington Post is far above it. This may come as a surprise if we think that objectivity and trustworthiness are related. Even though Fox News is trusted by people who report that they are "consistently conservative" and is the most widely consumed news media outlet among conservatives, it is not the most trusted by all parties: The Wall Street Journal is the only paper that was considered trustworthy by people across the political spectrum. Given this, if we consider objectivity to be a mark of trustworthiness, then we would expect the Wall Street Journal to be the lowest. But, in fact, the WSJ is only slightly below average, about the same as NPR. Huffington Post on the other hand, is classified as highly subjective in their first sentences, though they are not the most politically polarized, they are also in the second lowest group for trust (above The Nation and Infowars, about the same as Breitbart). 
 
 If we look now at how negative those first sentences are, we see a much different pattern emerge. Rather than being relatively close, there is one outlier: The Nation. 
 
-![sentiment chart](percent_subjective.png)
+![sentiment chart](avg_sent.png)
 
 There are a few ways to think about this. One of which is spin, but another is of political sentiment. This is an analysis only of articles about gun control, not overall coverage, and the Nation is by far the most liberal and progressive of all the outlets highlighted here. It should also come as no surprise that journalists and consumers of the Nation are outraged about the state of American gun policies, and outrage that is reflected in the sentiment analysis of the first sentence of articles about gun control. 
 
@@ -193,4 +193,6 @@ If we look instead at the more specific topics, the pattern stays roughly the sa
 
 There are some other datapoints that stand out in this analysis: Infowars, the Blaze, MSNBC, and NPR all have 0% negative sentiment in articles about Trump, which may initially be surprising given that per the topic modelling analysis, it seemed that Trump was the most polarizing and hotly discussed topic. But it seems that across the political spectrum, journalists use less affective language when discussing the president. 
 
-Looking 
+There are a few additional numbers that stand out: Both InfoWars and the Blaze have high proportions of negative sentiment in articles about gun bans, both over 50%. Likewise, Breitbart, in addition to having a lot of articles about culture and the government tends to frame them negatively (67% of those articles are classified as negative sentiment). The Huffington Post does as well (50% of those articles are classified as negative sentiment), though they discuss it less often. 
+
+## Conclusions 
