@@ -181,3 +181,16 @@ If we look now at how negative those first sentences are, we see a much differen
 
 There are a few ways to think about this. One of which is spin, but another is of political sentiment. This is an analysis only of articles about gun control, not overall coverage, and the Nation is by far the most liberal and progressive of all the outlets highlighted here. It should also come as no surprise that journalists and consumers of the Nation are outraged about the state of American gun policies, and outrage that is reflected in the sentiment analysis of the first sentence of articles about gun control. 
 
+In every single category, the Nation had a disproportionate amount of articles with negative sentiment. However, where they truly stand out is with the government topic. On all topics related to the government, 100% started with negative sentiment. No other paper has a perfect score on any of the topics. On the more specific topics, 100% of articles about Trump, background checks, sales, and assault weapons were rated as having negative sentiment. The topics that had the lowest ratio of negative sentiment were those about incidents. 
+
+If we look at these trends more closely, we see that with the exception of the Nation, there are very few outliers. The set of charts below parallels those above by ordering the papers from most conservative to most liberal. 
+
+![sentiment chart](top_papers.png)
+
+If we look instead at the more specific topics, the pattern stays roughly the same: with the exception of the Nation, there are few outliers or trends in the data. 
+
+![sentiment chart](top_papers_all.png)
+
+There are some other datapoints that stand out in this analysis: Infowars, the Blaze, MSNBC, and NPR all have 0% negative sentiment in articles about Trump, which may initially be surprising given that per the topic modelling analysis, it seemed that Trump was the most polarizing and hotly discussed topic. But it seems that across the political spectrum, journalists use less affective language when discussing the president. 
+
+Looking 
