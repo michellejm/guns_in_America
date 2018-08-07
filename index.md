@@ -191,7 +191,7 @@ While these three topics do not seem to be, in and of themselves, able to accoun
 
 #### Sentiment Analysis
 
-Before looking at sentiment, we first look at the degree of subjectivity. Our classifier returned a subjectivity value ranging from 0.0 to 1.0 (very subjective). A rating of at least 0.65 means that and article was classified as "subjective". The proportion of subjective articles to total number of articles in the corpus for each media outlet is shown in the table below. 
+Before looking at sentiment, we first look at the degree of subjectivity. Our classifier returned a subjectivity value ranging from 0.0 to 1.0 (very subjective). I classified articles with a rating of at least 0.65 as "subjective". The proportion of subjective articles to total number of articles in the corpus for each media outlet is shown in the table below. 
 
 ![subjectivity chart](percent_subjective.png)
 
@@ -229,5 +229,7 @@ Furthermore, topics such as Trump's responses and videos of incidents and protes
 
 Finally, the biggest take away may in fact be that for the most part, most media outlets are discussing many of the same topics with much the same affective tone (with the obvious exception of The Nation, who clearly expresses their negative sentiment at the state of of American gun control and policy). Even though the readership is along an increasingly polarized continuum, every point along that continuum is engaged in this debate. The difference is where we are starting from—basic assumptions about culture and identity, or the relationship between guns and what it means to be an American. 
 
-The code for this project can be found on Github. 
+The code for this project is on [Github](https://github.com/michellejm/guns_in_America). 
+
+
 
