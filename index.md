@@ -1,5 +1,10 @@
 # Politically Polarizing Media Coverage: Topic Modeling and Sentiment Analysis of the Gun Control and Immigration Debates
 
+[Michelle A. McSweeney](michelleamcsweeney.com)
+Associate Research Scholar
+[The Center for Spatial Research](http://c4sr.columbia.edu/), Columbia University
+August 2018
+
 ## A Polarized Landscape 
 
 The United States is going through a period of political polarization that is unprecedented in recent history. This phenomenon has been steadily increasing over the past twenty-five years, and is not limited to our elections, but can can be seen on [college campuses](https://www.washingtonpost.com/news/rampage/wp/2017/05/02/political-polarization-among-college-freshmen-is-at-a-record-high-as-is-the-share-identifying-as-far-left/?utm_term=.ec991372a6de), in the [workplace](https://hbr.org/2017/05/research-political-polarization-is-changing-how-americans-work-and-shop), and in the [media we consume](http://www.journalism.org/2014/10/21/political-polarization-media-habits/). In many ways, this is a self-fueling effect: the more polarized our opinions become, the more we produce and consume media that align with our own ideologies, unwilling or unable to see or understand the other side without our own implicit or explicit biases.
@@ -202,9 +207,11 @@ Overall, though our country is politically more polarized than ever, the languag
 
 And yet, this debate hits at the meaning of the constitution: who it was written for, and what it protects. There are two topics about the second amendment. The first is about the national conversation, following it on twitter and the news, the second is about families, federal and state laws, rights, and taking up arms. Ultimately, these two topics are very different: the first is about the national debate, who we are, and the voice of the people, the second is about the laws that govern the United States, and how those laws are interpreted. Outlets across the political spectrum discuss both of these nearly equally, even if they ascribe different meaning to the answers. 
 
-However, liberal and conservative outlets have measurably different ways of framing the relationship between gun control, culture, and national identity. For conservative outlets, this topic centers around laws, owners, crime, violence, and "America" whereas for liberal ones, it centers around taking action, supporting issues, policies, signing, and "the nation". To this topic, whether we live in "a nation", or "America" says a lot about how we think about gun control (notably, "America" and "American" actually appear slightly more frequently in liberal outlets compared to conservative, but not with respect to this topic).  
+However, liberal and conservative outlets have measurably different ways of framing the relationship between gun control, culture, and national identity. For conservative outlets, this topic centers around laws, owners, crime, violence, and "America" whereas for liberal ones, it centers around taking action, supporting issues, policies, signing, and "the nation". To this topic, whether we live in "a nation", or "America" says a lot about how we think about gun control (notably, "America" and "American" actually appear slightly more frequently in liberal outlets compared to conservative, but not with respect to topics of national identity).  
 
 Furthermore, topics such as Trump's responses and videos of incidents and protests are unevenly covered: some outlets give them a lot of attention whereas others give them significantly less. This may indicate different coverage styles (i.e., some outlets don't cover these because it doesn't fit into their mission) or it may indicate the polarization *within* each political pole. Further study of coverage of different topics is necessary to better understand if this polarization is specific to gun control or more general. 
 
+Finally, the biggest take away may in fact be that for the most part, most media outlets are discussing many of the same topics with much the same affective tone (with the obvious exception of The Nation, who clearly expresses their negative sentiment at the state of of American gun control and policy). Even though the readership is along an increasingly polarized continuum, every point along that continuum is engaged in this debate. The difference is where we are starting from—basic assumptions about culture and identity, or the relationship between guns and what it means to be an American. 
 
+The code for this project can be found on Github. 
 
