@@ -1,7 +1,8 @@
 # Politically Polarizing Media Coverage: Topic Modeling and Sentiment Analysis of the Gun Control and Immigration Debates
 
-[Michelle A. McSweeney](michelleamcsweeney.com)
+[Michelle A. McSweeney](michelleamcsweeney.com),
 Associate Research Scholar
+
 [The Center for Spatial Research](http://c4sr.columbia.edu/), Columbia University
 
 August 2018
