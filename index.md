@@ -6,7 +6,7 @@ Associate Research Scholar
 
 August 2018
 
-> Liberal and conservative outlets have different ways of framing the relationship between gun control, culture, and national identity. For conservative outlets, this topic centers around laws, owners, crime, violence, and "America" whereas for liberal ones, it centers around taking action, supporting issues, policies, signing, and "the nation".
+> *Liberal and conservative outlets have different ways of framing the relationship between gun control, culture, and national identity. For conservative outlets, this topic centers around laws, owners, crime, violence, and "America" whereas for liberal ones, it centers around taking action, supporting issues, policies, signing, and "the nation".*
 
 ## A Polarized Landscape 
 
