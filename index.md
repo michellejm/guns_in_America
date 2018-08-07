@@ -18,7 +18,7 @@ Liberal:
 NPR, New York Times, MSNBC, Huffington Post, and the Nation
 
 Conservative:
-Wall Street Journal, Fox News, Breitbart, the Blaze, and Infowars
+Wall Street Journal, Fox News, Breitbart, the Blaze, and Infowars[1]
 
 Furthermore, it should be noted that conservative-identified respondents rely on Fox News more than any other source whereas liberal-identified respondents reported drawing on multiple different outlets. This may introduce some bias with respect to how influential each outlet is for different groups. However, in an attempt to capture the polarization of the conversation, the influence each outlet contributes to the total is unweighted.
 
@@ -45,6 +45,7 @@ The Blaze and New York Times (NYT) are similarly ranked, even though the Blaze i
 
 While this ranking has its own significant bias in it, it offers a useful way to rank the combination of how much each outlet it trusted across a polarized audience. This is not to say that any outlet **should** have any particular ranking, only that within this ecosystem, this is what the composite trust/polarity 
 
+[1] While this article seeks to understand political polarization in the media, I do not intend to validate the lies that some of these outlets print. 
 
 ### Collecting the Corpus
 
@@ -149,9 +150,9 @@ Infowars, Blaze, Breitbart, Fox, WSJ, MSNBC, Huffington Post, NYT, NPR, The Nati
 
 ![small multiples: topic by polarity](cons-to-lib-all.png)
 
-For the most part, the topics are relatively consistently spread across the political spectrum, though two topics stand out: Trump and videos. The first is the topic about Trump. We already know that Trump is polarizing as a topic, but it also seems that some outlets cover him with relationship to gun control. Interestingly, those outlets are neither all liberal nor all conservative, but rather spread throughout. The second topic is the one about video cameras. At first, I thought this was about body cameras, but it is actually related to reporting on video footage from protests and other events. For example, many of the articles that contributed to this topic were about the Chalottesville "Unite the Right" protest in August 2017, where many self-identified white nationalists chose to carry guns, and there was significant reporting on the video footage that counter-protesters and others captured. What is interesting about this topic is how erratic it seems when viewed along a political continuum. 
+For the most part, the topics are relatively consistently spread across the political spectrum, though two topics stand out: Trump and videos. The first is the topic about Trump. We already know that Trump is polarizing as a topic, but it also seems that some outlets cover him with relationship to gun control. Interestingly, those outlets are neither all liberal nor all conservative, but rather spread throughout. The second topic is the one about video cameras. At first, I thought this was about body cameras, but it is actually related to reporting on video footage from protests and other events. For example, many of the articles that contributed to this topic were about the Chalottesville "Unite the Right" protest in August 2017, where many self-identified white nationalists chose to carry guns, and there was significant reporting on the video footage that counter-protesters and others captured. What is interesting about this topic is how erratic it seems when viewed along a political continuum. This is confirmed by looking at the standard deviation of the prevalence of all of the topics: Trump, videos, and gun control as related to the national identity stand out against all the others. 
 
-Some topics that we might have expected to appear differently in each media outlet do: the topic relating gun control and national identity is covered more broadly by conservative outlets than liberal ones, and the topic about culture and national identity shows the opposite trend. 
+Some topics that we might have expected to appear differently in each media outlet do: the topic relating gun control and national identity is covered more broadly by conservative outlets than liberal ones (though as noted above, the difference in reporting is large across outlets), and the topic about culture and national identity shows the opposite trend. 
 
 If we look at this same data organized instead by ranking (a composite of degree of polarization and degree of trust). Both of these topics (Trump and video coverage) are almost ignored by the outlets that are low polarization/high trust and high polarization/low trust, but were very widely covered by the outlets ranked in the middle. 
 
@@ -181,18 +182,29 @@ If we look now at how negative those first sentences are, we see a much differen
 
 There are a few ways to think about this. One of which is spin, but another is of political sentiment. This is an analysis only of articles about gun control, not overall coverage, and the Nation is by far the most liberal and progressive of all the outlets highlighted here. It should also come as no surprise that journalists and consumers of the Nation are outraged about the state of American gun policies, and outrage that is reflected in the sentiment analysis of the first sentence of articles about gun control. 
 
-In every single category, the Nation had a disproportionate amount of articles with negative sentiment. However, where they truly stand out is with the government topic. On all topics related to the government, 100% started with negative sentiment. No other paper has a perfect score on any of the topics. On the more specific topics, 100% of articles about Trump, background checks, sales, and assault weapons were rated as having negative sentiment. The topics that had the lowest ratio of negative sentiment were those about incidents. 
+In every single category, the Nation had a disproportionate ratio of articles with negative sentiment. However, where they truly stand out is with the government topic generally. On all topics related to the government, 100% started with negative sentiment. No other paper has a perfect score on any of the topics. On the more specific topics, 100% of articles about Trump, background checks, sales, and assault weapons were rated as having negative sentiment. The topics that had the lowest ratio of negative sentiment were those about incidents (Parkland and New York City). 
 
-If we look at these trends more closely, we see that with the exception of the Nation, there are very few outliers. The set of charts below parallels those above by ordering the papers from most conservative to most liberal. 
+If we look at these trends more closely, we see that with the exception of the Nation, there are very few outliers. The set of charts below parallels those above by ordering the papers from most conservative to most liberal and illustrates the percent of negative sentiment by general topic. 
 
 ![sentiment chart](top_papers.png)
 
-If we look instead at the more specific topics, the pattern stays roughly the same: with the exception of the Nation, there are few outliers or trends in the data. 
+If we look instead at the more specific topics, the pattern stays roughly the same: with the exception of the Nation, there are only a few outliers, and no readily discernable trends. 
 
 ![sentiment chart](top_papers_all.png)
 
-There are some other datapoints that stand out in this analysis: Infowars, the Blaze, MSNBC, and NPR all have 0% negative sentiment in articles about Trump, which may initially be surprising given that per the topic modelling analysis, it seemed that Trump was the most polarizing and hotly discussed topic. But it seems that across the political spectrum, journalists use less affective language when discussing the president. 
+Notably, Infowars, the Blaze, MSNBC, and NPR all have 0% negative sentiment in articles about Trump, which may initially be surprising given that per the topic modelling analysis, it seemed that Trump was the most polarizing and hotly discussed topic. But it also seems that across the political spectrum, journalists use less affective language when discussing the president's response to shootings and gun control. 
 
-There are a few additional numbers that stand out: Both InfoWars and the Blaze have high proportions of negative sentiment in articles about gun bans, both over 50%. Likewise, Breitbart, in addition to having a lot of articles about culture and the government tends to frame them negatively (67% of those articles are classified as negative sentiment). The Huffington Post does as well (50% of those articles are classified as negative sentiment), though they discuss it less often. 
+Additionally, both InfoWars and the Blaze have high proportions of negative sentiment in articles about gun bans: over 50%. Likewise, Breitbart, in addition to having many articles about culture and the government, tends to frame them negatively (67% of those articles are classified as negative sentiment). The Huffington Post does as well (50% of those articles are classified as negative sentiment), though they discuss it less often. 
 
-## Conclusions 
+## Conclusions
+
+Overall, though our country is politically more polarized than ever, the language that we use to indicate that is complex. It's clear that media consumed by both parties is not uniform, and there is considerable difference in the way that gun control is covered. Though this study looked only at topic and sentiment, it offers a distant reading of "news" outlets. Though the truth of statements in the articles was not addressed, since, in our current political moment, the very idea of truth is somehow polarizing. 
+
+And yet, this debate hits at the meaning of the constitution: who it was written for, and what it protects. There are two topics about the second amendment. The first is about the national conversation, following it on twitter and the news, the second is about families, federal and state laws, rights, and taking up arms. Ultimately, these two topics are very different: the first is about the national debate, who we are, and the voice of the people, the second is about the laws that govern the United States, and how those laws are interpreted. Outlets across the political spectrum discuss both of these nearly equally, even if they ascribe different meaning to the answers. 
+
+However, liberal and conservative outlets have measurably different ways of framing the relationship between gun control, culture, and national identity. For conservative outlets, this topic centers around laws, owners, crime, violence, and "America" whereas for liberal ones, it centers around taking action, supporting issues, policies, signing, and "the nation". To this topic, whether we live in "a nation", or "America" says a lot about how we think about gun control (notably, "America" and "American" actually appear slightly more frequently in liberal outlets compared to conservative, but not with respect to this topic).  
+
+Furthermore, topics such as Trump's responses and videos of incidents and protests are unevenly covered: some outlets give them a lot of attention whereas others give them significantly less. This may indicate different coverage styles (i.e., some outlets don't cover these because it doesn't fit into their mission) or it may indicate the polarization *within* each political pole. Further study of coverage of different topics is necessary to better understand if this polarization is specific to gun control or more general. 
+
+
+
