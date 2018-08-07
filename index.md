@@ -5,13 +5,16 @@ Associate Research Scholar
 [The Center for Spatial Research](http://c4sr.columbia.edu/), Columbia University
 August 2018
 
+> Liberal and conservative outlets have different ways of framing the relationship between gun control, culture, and national identity. For conservative outlets, this topic centers around laws, owners, crime, violence, and "America" whereas for liberal ones, it centers around taking action, supporting issues, policies, signing, and "the nation".
+
 ## A Polarized Landscape 
 
 The United States is going through a period of political polarization that is unprecedented in recent history. This phenomenon has been steadily increasing over the past twenty-five years, and is not limited to our elections, but can can be seen on [college campuses](https://www.washingtonpost.com/news/rampage/wp/2017/05/02/political-polarization-among-college-freshmen-is-at-a-record-high-as-is-the-share-identifying-as-far-left/?utm_term=.ec991372a6de), in the [workplace](https://hbr.org/2017/05/research-political-polarization-is-changing-how-americans-work-and-shop), and in the [media we consume](http://www.journalism.org/2014/10/21/political-polarization-media-habits/). In many ways, this is a self-fueling effect: the more polarized our opinions become, the more we produce and consume media that align with our own ideologies, unwilling or unable to see or understand the other side without our own implicit or explicit biases.
  
 Given this state, and the overwhelming amount of content produced every day, I wanted a way to compare media that is consumed by people at both ends of the political spectrum. Understanding that I would bring my own implicit biases to any actual reading, this project seeks to distill the articles into topics and narrative styles that can, [from a distance](https://www.nytimes.com/2011/06/26/books/review/the-mechanic-muse-what-is-distant-reading.html), be compared and understood. It is my hope that this will make it possible to see both the most contentious points as well as the areas of agreement and shared values.
 
-For this initial exploration, I focused on the debate around gun control. The project started in the days after the Parkland shooting, and includes articles going back to Sandy Hook. The results show that across the political spectrum, people care about many of the same things: legal issues, gun sales, the opinion of those who operate firearms for their work, etc. Almost every media outlet used language to emphasize that their opinion is the best. However, the appearance of three topics in particular were divided along political lines: articles about research, mass shooting incidents, and those that explicitly contradict the opposition. The findings offer insight into why and how the political poles are talking past each other. 
+For this initial exploration, I focused on the debate around gun control. The project started in the days after the Parkland shooting, and includes articles going back to Sandy Hook. The results show that across the political spectrum, people care about many of the same things: mass shootings, gun control, the second ammendment, etc. The findings offer insight into why and how the political poles are talking past each other even when talking about the same thing.
+
 
 ## Methods
 
