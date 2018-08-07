@@ -3,6 +3,7 @@
 [Michelle A. McSweeney](michelleamcsweeney.com)
 Associate Research Scholar
 [The Center for Spatial Research](http://c4sr.columbia.edu/), Columbia University
+
 August 2018
 
 > Liberal and conservative outlets have different ways of framing the relationship between gun control, culture, and national identity. For conservative outlets, this topic centers around laws, owners, crime, violence, and "America" whereas for liberal ones, it centers around taking action, supporting issues, policies, signing, and "the nation".
